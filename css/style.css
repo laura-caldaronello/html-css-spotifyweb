@@ -104,8 +104,20 @@ footer {
 }
 footer [id^="footer-"] {
   height: 100%;
-  width: 100px;
+  min-width: 100px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
   background-color: blue;
+}
+#footer-left img {
+  width: 40px;
+  height: auto;
+}
+#song h5,
+#song h6,
+#footer-left i {
+  margin: 5px;
 }
 
 /* /classi specifiche */
