@@ -38,6 +38,12 @@
   padding-bottom: 5px;
 }
 
+.ms-bar {
+  height: 2px;
+  border-radius: 2px;
+  border: 2px solid;
+}
+
 /* /caratteristiche preliminari */
 
 /* classi generiche */
@@ -106,9 +112,11 @@ footer [id^="footer-"] {
   height: 100%;
   min-width: 100px;
   padding: 10px;
+  background-color: blue;
+}
+#footer-left {
   display: flex;
   align-items: center;
-  background-color: blue;
 }
 #footer-left img {
   width: 40px;
@@ -116,8 +124,37 @@ footer [id^="footer-"] {
 }
 #song h5,
 #song h6,
-#footer-left i {
+footer i,
+#time > * {
   margin: 5px;
+}
+#footer-center {
+  flex-grow: 2;
+}
+#play,
+#time {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: salmon;
+}
+#play .fa-play-circle {
+  scale: 2;
+  margin: 5px 10px;
+}
+#bar-container {
+  position: relative;
+  width: 50%;
+  border-color: lightgrey;
+}
+#bar-content {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10%;
+  border-color: white;
 }
 
 /* /classi specifiche */
