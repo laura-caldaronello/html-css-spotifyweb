@@ -33,9 +33,23 @@
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.ms-vertical-margin-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 .ms-vertical-padding-5 {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.ms-button-upgrade {
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid white;
+  border-radius: 25px;
+  font-size: 12px;
+  background-color: transparent;
 }
 
 .ms-bar {
@@ -128,6 +142,41 @@ main {
   height: 100%;
   background-color: yellow;
   overflow-y: scroll;
+}
+#upgrade {
+  height: 80px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+}
+#nav {
+  min-height: 60px;
+  padding: 15px;
+  background-color: blue;
+}
+#nav ul {
+  min-height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#nav ul li {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px;
+  color: white;
+}
+#nav ul li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  border-bottom: 3px solid yellowgreen;
 }
 
 footer {
