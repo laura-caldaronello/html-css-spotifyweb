@@ -10,11 +10,20 @@
   border: 2px solid black;
   background-color: lightgrey;
 }
+.ms-debug .row {
+  border: 2px solid blue;
+  background-color: pink;
+}
 
 .ms-container {
   width: 100%;
   height: 100vh;
 }
+
+
+/* /caratteristiche preliminari */
+
+/* classi generiche */
 
 .ms-fill {
   width: 100%;
@@ -81,6 +90,10 @@
   position: relative;
   width: 100%;
 }
+#popolari .ms-album-box .ms-album-img-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
 .ms-album-box .ms-album-img-container img {
   width: 100%;
 }
@@ -108,12 +121,6 @@
 .ms-album-box:hover i {
   visibility: visible;
 }
-
-/* /caratteristiche preliminari */
-
-/* classi generiche */
-
-
 
 /* /classi generiche */
 
@@ -186,7 +193,11 @@ main {
   position: relative;
   margin: 0 10px;
 }
-#nav ul li::after {
+#nav ul li a {
+  color: grey;
+  text-decoration: none;
+}
+#nav ul li:hover::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -194,6 +205,10 @@ main {
   transform: translateX(-50%);
   width: 30px;
   border-bottom: 3px solid yellowgreen;
+}
+/* alle prime 4 col (escluso il titolo "recently played") della row "recently" dò un'altezza che è almeno più grande dell'altezza della colonna col maggior contenuto, altrimenti nella size md le ultime due col contenenti degli album non si sistemano sotto le prime due. in alternativa avrei potuto usare flex (come credo sia nell'esercizio originale osservandone il comportamento) ma non volevo usarlo ovunque e volevo esercitarmi un po' con bootstrap */
+#recently [class^="col-"]:not(.col-xs-12):nth-last-of-type(n+3) {
+  min-height: 350px;
 }
 
 footer {
