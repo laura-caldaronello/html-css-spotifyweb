@@ -24,6 +24,12 @@
 .ms-color-white {
   color: white;
 }
+.ms-color-lightgrey {
+  color: lightgrey;
+}
+.ms-color-grey {
+  color: grey;
+}
 
 .ms-bold {
   font-weight: bold;
@@ -70,12 +76,10 @@
 
 .ms-album-box {
   padding: 10px 0;
-  background-color: seagreen;
 }
 .ms-album-box .ms-album-img-container {
   position: relative;
   width: 100%;
-  background-color: sienna;
 }
 .ms-album-box .ms-album-img-container img {
   width: 100%;
@@ -85,10 +89,25 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: yellow;
+  background-color: black;
   opacity: 0.5;
+  visibility: hidden;
 }
-
+.ms-album-box:hover .ms-album-layover {
+  visibility: visible;
+}
+.ms-album-box i {
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+  visibility: hidden;
+}
+.ms-album-box:hover i {
+  visibility: visible;
+}
 
 /* /caratteristiche preliminari */
 
@@ -140,19 +159,18 @@ main {
   float: left;
   width: calc(100% - 50px);
   height: 100%;
-  background-color: yellow;
+  background-color: rgb(20 25 34);
   overflow-y: scroll;
 }
 #upgrade {
   height: 80px;
   padding: 15px;
-  background-color: black;
+  background-color: rgb(8 11 18);
   color: white;
 }
 #nav {
   min-height: 60px;
   padding: 15px;
-  background-color: blue;
 }
 #nav ul {
   min-height: 30px;
@@ -167,7 +185,6 @@ main {
   display: inline-block;
   position: relative;
   margin: 0 10px;
-  color: white;
 }
 #nav ul li::after {
   content: '';
@@ -219,7 +236,6 @@ footer [id^="footer-"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: salmon;
 }
 #play .fa-play-circle {
   scale: 2;
