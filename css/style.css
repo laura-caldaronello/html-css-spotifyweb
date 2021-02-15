@@ -62,13 +62,23 @@
 }
 
 .ms-button-upgrade {
-  height: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
+  height: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   border: 1px solid white;
-  border-radius: 25px;
+  border-radius: 15px;
   font-size: 12px;
   background-color: transparent;
+}
+.ms-button-upgrade:hover {
+  transform: scale(1.2);
+}
+.ms-play-button {
+  background-color: transparent;
+  border: none;
+}
+.ms-play-button:nth-child(3):hover {
+  transform: scale(1.2);
 }
 
 .ms-bar {
@@ -77,14 +87,33 @@
   border: 2px solid;
 }
 .ms-bar-container {
-  position: relative;
   border-color: grey;
 }
 .ms-bar-content {
-  position: absolute;
+  position: relative;
   top: -2px;
   left: -2px;
   border-color: white;
+}
+.ms-bar-content-circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -6px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: white;
+  visibility: hidden;
+}
+.ms-bar-container:hover {
+  cursor: pointer;
+}
+.ms-bar-container:hover .ms-bar-content {
+  border-color: yellowgreen;
+}
+.ms-bar-container:hover .ms-bar-content-circle {
+  visibility: visible;
 }
 
 .ms-album-box {
@@ -162,6 +191,15 @@ main {
   justify-content: space-between;
   background-color: rgb(0 0 0);
 }
+#left-bar a,
+footer #footer-left a {
+  color: grey;
+}
+#left-bar a:hover,
+footer #footer-left a:hover {
+  text-decoration: none;
+  color: white;
+}
 #left-bar-top,
 #left-bar-bottom {
   flex-shrink: 0;
@@ -185,7 +223,8 @@ main {
 #left-bar-bottom img {
   width: 20px;
 }
-#left-bar-top ul img {
+#left-bar-top ul img,
+#left-bar-bottom > a:first-child img {
   filter: brightness(50%);
 }
 #left-bar-top ul span {
@@ -197,14 +236,18 @@ main {
   margin-left: -15px;
   padding-left: 15px;
 }
-#left-bar-top ul a:hover {
-  padding-left: 12px; /* altrimenti il testo va 3px a destra */
-  text-decoration: none;
-  color: white;
+#left-bar-top ul li:first-child a {
   border-left: 3px solid yellowgreen;
+  padding-left: 12px;
+  color: white;
 }
-#left-bar-top ul a:hover img {
+#left-bar-top ul li:first-child img,
+#left-bar-top ul a:hover img,
+#left-bar-bottom > a:first-child:hover img {
   filter: brightness(100%);
+}
+#left-bar-top #playlist a:hover .ms-plus {
+  background-color: white
 }
 
 #left-bar-center li {
@@ -213,6 +256,22 @@ main {
 }
 #left-bar-center li:first-child {
   margin-top: 0;
+}
+
+#left-bar-bottom > a:first-child {
+  display: block;
+}
+#left-bar-bottom > div:last-child div {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: gray;
+  overflow: hidden;
+  vertical-align: middle;
+}
+#left-bar-bottom > div:last-child h6 {
+  margin: 0;
 }
 
 #contents {
@@ -228,7 +287,7 @@ main {
   right: 0;
   width: calc(100% - 50px);
   height: 80px;
-  padding: 15px;
+  padding: 25px;
   background-color: rgba(8,11,18,0.8);
   color: white;
   z-index: 1;
@@ -256,7 +315,10 @@ main {
   color: grey;
   text-decoration: none;
 }
-#nav ul li:hover::after {
+#nav ul li:hover a {
+  color: white;
+}
+#nav ul li:first-child::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -348,7 +410,7 @@ footer [id^="footer-"] {
   #left-bar-top #logo img {
     width: 40px;
   }  
-  #left-bar-bottom div:first-child {
+  #left-bar-bottom a:first-child {
     border-bottom: 1px solid grey;
   }
     
