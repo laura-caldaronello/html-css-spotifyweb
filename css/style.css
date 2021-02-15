@@ -161,7 +161,6 @@ main {
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(0 0 0);
-  color: white;
 }
 #left-bar-top,
 #left-bar-bottom {
@@ -169,11 +168,12 @@ main {
   padding: 15px;
 }
 #left-bar-center {
-  min-height: 60px;
+  min-height: 80px;
   height: 100%;
   padding: 0 15px;
   overflow-y: scroll;
 }
+
 #left-bar-top #logo img {
   width: 20px;
 }
@@ -185,8 +185,34 @@ main {
 #left-bar-bottom img {
   width: 20px;
 }
+#left-bar-top ul img {
+  filter: brightness(50%);
+}
 #left-bar-top ul span {
   vertical-align: middle;
+}
+/* il seguente selettore mi serve per poter dare il bordo sinistro in linea con la viewport */
+#left-bar-top ul a {
+  display: block;
+  margin-left: -15px;
+  padding-left: 15px;
+}
+#left-bar-top ul a:hover {
+  padding-left: 12px; /* altrimenti il testo va 3px a destra */
+  text-decoration: none;
+  color: white;
+  border-left: 3px solid yellowgreen;
+}
+#left-bar-top ul a:hover img {
+  filter: brightness(100%);
+}
+
+#left-bar-center li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#left-bar-center li:first-child {
+  margin-top: 0;
 }
 
 #contents {
