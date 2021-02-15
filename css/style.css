@@ -357,7 +357,15 @@ footer [id^="footer-"] {
   width: 40px;
   height: auto;
 }
-#footer-left > * > *,
+#footer-left div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#footer-left div:last-child i {
+  margin: 0 5px;
+}
+#footer-left > *:not(div:last-child) > *,
 #footer-center > * > *,
 #footer-right > * {
   margin: 5px;
