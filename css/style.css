@@ -30,6 +30,10 @@
   height: 100%;
 }
 
+.ms-hidden-600 {
+  display: none;
+}
+
 .ms-color-white {
   color: white;
 }
@@ -74,7 +78,7 @@
 }
 .ms-bar-container {
   position: relative;
-  border-color: lightgrey;
+  border-color: grey;
 }
 .ms-bar-content {
   position: absolute;
@@ -122,6 +126,25 @@
   visibility: visible;
 }
 
+.ms-plus {
+  position: relative;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  vertical-align: middle;
+  background-color: lightgray;
+}
+.ms-plus::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(0 0 0);
+}
+
 /* /classi generiche */
 
 /* classi specifiche */
@@ -134,18 +157,31 @@ main {
   float: left;
   width: 50px;
   height: 100%;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: pink;
+  /* justify-content: space-between; */
+  background-color: rgb(0 0 0);
+  color: white;
 }
 #left-bar-top,
 #left-bar-bottom {
   width: 100%;
-  min-height: 100px;
+  height: 100px;
+  flex-shrink: 0;
   padding: 15px;
+  background-color: rgb(0 0 0);
+}
+#left-bar-top {
+  height: 250px;
+  flex-shrink: 0;
+  background-color: red;
+  overflow-y: auto;
+}
+#left-bar-center {
   background-color: blue;
+  overflow-y: scroll;
+  flex-basis: calc(100% - 250px - 100px);
+  min-height: 60px;
 }
 #left-bar-top #logo img {
   width: 20px;
@@ -170,12 +206,18 @@ main {
   overflow-y: scroll;
 }
 #upgrade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 50px);
   height: 80px;
   padding: 15px;
-  background-color: rgb(8 11 18);
+  background-color: rgba(8,11,18,0.8);
   color: white;
+  z-index: 1;
 }
 #nav {
+  margin-top: 80px;
   min-height: 60px;
   padding: 15px;
 }
@@ -218,14 +260,14 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: pink;
+  background-color: rgb(40 40 40);
+  color: white;
   z-index: 1;
 }
 footer [id^="footer-"] {
   height: 100%;
   min-width: 100px;
   padding: 10px;
-  background-color: blue;
 }
 #footer-left,
 #footer-right {
@@ -274,7 +316,12 @@ footer [id^="footer-"] {
 
 /* mediaquery */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
+
+  .ms-hidden-600 {
+    display: inline-block;
+  }
+
   #left-bar {
     width: 200px;
   }
@@ -285,9 +332,11 @@ footer [id^="footer-"] {
     border-bottom: 1px solid grey;
   }
     
-  #contents {
+  #contents,
+  #upgrade {
     width: calc(100% - 200px);
   }
+
 }
 
 /* /mediaquery */
