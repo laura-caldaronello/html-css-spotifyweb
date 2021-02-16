@@ -77,8 +77,92 @@
   background-color: transparent;
   border: none;
 }
+/* avendo messo .ms-pseudo questa istruzione è inutile ma la lascio nel caso volessi eliminare .ms-pseudo */
 .ms-play-button:nth-child(3):hover {
   transform: scale(1.2);
+}
+
+/* .ms-pseudo serve a "ingannare" per far credere che "hoverando" su un elemento apparentemente esterno alla barra del player, si possa animare la stessa */
+.ms-pseudo {
+  position: absolute;
+  bottom: 100%;
+  transform: scale(2);
+}
+#time .ms-pseudo:hover {
+  transform: scale(2.5);
+  cursor: pointer;
+}
+#time .ms-pseudo:hover + span + #player-bar-container #player-bar-content .ms-bar-content-circle {
+  visibility: visible;
+}
+/* BONUS: PROVARE A HOVERARE SUL TASTO PLAY DEL FOOTER */
+#time .ms-pseudo:hover + span + #player-bar-container #player-bar-content {
+  border-color: yellowgreen;
+  animation-name: songplay;
+  /* 275s sono 4:35 min */
+  animation-duration: 275s;
+  animation-timing-function: linear;
+}
+@keyframes songplay {
+  100% {width: 100%;}
+}
+#time span:first-of-type span {
+  /* per togliere gli spazietti degli inline block */
+  float: left;
+}
+#time span .ms-minute::before {
+  content: '0';
+}
+#time span .ms-second .ms-decimal::before {
+  content: '0';
+}
+#time span .ms-second .ms-unit::before {
+  content: '0';
+}
+#time .ms-pseudo:hover + span .ms-second .ms-unit::before {
+  animation-name: timegoes-unit;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  /* 275s/10s = 27.5 */
+  animation-iteration-count: 27.5;
+}
+#time .ms-pseudo:hover + span .ms-second .ms-decimal::before {
+  animation-name: timegoes-decimal;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+  /* (275s-4.5s)/60s = 4.5083 */
+  animation-iteration-count: 4.5083;
+  /* non so perchè senza il ritardo non funziona */
+  animation-delay: 4.5s;
+}
+#time .ms-pseudo:hover + span .ms-minute::before {
+  animation-name: timegoes-unit;
+  animation-duration: 600s;
+  animation-timing-function: linear;
+  /* (275s-29.5s)/600s = 0.4092 */
+  animation-iteration-count: 0.4092;
+  /* non so perchè senza il ritardo non funziona */
+  animation-delay: 29.5s;
+}
+@keyframes timegoes-unit {
+  0% {content: '0';}
+  10% {content: '1';}
+  20% {content: '2';}
+  30% {content: '3';}
+  40% {content: '4';}
+  50% {content: '5';}
+  60% {content: '6';}
+  70% {content: '7';}
+  80% {content: '8';}
+  90% {content: '9';}
+}
+@keyframes timegoes-decimal {
+  0% {content: '0';}
+  16.67% {content: '1';}
+  33.33% {content: '2';}
+  50% {content: '3';}
+  66.67% {content: '4';}
+  83.33% {content: '5';}
 }
 
 .ms-bar {
@@ -292,6 +376,7 @@ footer #footer-left a:hover {
   background-color: rgba(8,11,18,0.8);
   color: white;
   z-index: 1;
+  visibility: hidden;
 }
 #nav {
   margin-top: 80px;
@@ -376,33 +461,45 @@ footer [id^="footer-"] {
 }
 #play,
 #time {
+  position: relative;
   height: 30px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+/* nascondo il play per far funzionare quello in ".ms-pseudo" e lascio questo come segnaposto */
 #play .fa-play-circle {
-  scale: 2;
+  visibility: hidden;
+  transform: scale(2);
   margin: 5px 10px;
 }
 #player-bar-container {
   width: 50%;
 }
 #player-bar-content {
-  width: 10%;
+  width: 0%;
 }
 #volume-bar-container {
-  width: 100px;
+  width: 10vw;
 }
 #volume-bar-content {
-  width: 40px;
+  width: 40%;
 }
 
 
 /* /classi specifiche */
 
 /* mediaquery */
+
+/* per abitudine a ragionare in questo modo preferisco utilizzare sempre i min-width */
+@media screen and (min-width: 300px) {
+
+#upgrade {
+  visibility: visible;
+}
+
+}
 
 @media screen and (min-width: 600px) {
 

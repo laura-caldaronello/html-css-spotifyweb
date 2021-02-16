@@ -290,7 +290,18 @@
           </button>
         </div>
         <div id="time">
-          <span>0:25</span>
+          <!-- .ms-pseudo serve a "ingannare" per far credere che "hoverando" su un elemento apparentemente esterno alla barra del player, si possa animare la stessa -->
+          <div class="ms-pseudo">
+            <i class="far fa-play-circle"></i>
+          </div>
+          <span>
+            <span class="ms-minute"></span>
+            <span>:</span>
+            <span class="ms-second">
+              <span class="ms-decimal"></span>
+              <span class="ms-unit"></span>
+            </span>
+          </span>
           <div id="player-bar-container" class="ms-bar ms-bar-container">
             <div id="player-bar-content" class="ms-bar ms-bar-content">
               <div class="ms-bar-content-circle"></div>
